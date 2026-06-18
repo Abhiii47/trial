@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import { jsonDb } from './jsonDb';
 
 export const connectDB = async (): Promise<void> => {
   try {

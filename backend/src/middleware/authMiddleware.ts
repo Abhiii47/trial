@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import User from '../models/User';
-import { jsonDb } from '../config/jsonDb';
 import { IUser } from '../types';
 
 export interface AuthRequest extends Request {
@@ -24,12 +23,7 @@ export const protect = async (req: AuthRequest, res: Response, next: NextFunctio
     // Verify token
     const decoded = jwt.verify(token, process.env.JWT_SECRET || 'supersecretjwtkey123!@#') as { id: string };
 
-    let user;
-    if ((global as any).useMockDb) {
-      user = await jsonDb.getUserById(decoded.id);
-    } else {
-      user = await User.findById(decoded.id).select('-password');
-    }
+    const user = await User.findById(decoded.id).select('-password');
 
     if (!user) {
       res.status(401).json({ success: false, message: 'User not found' });
