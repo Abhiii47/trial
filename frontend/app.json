@@ -21,7 +21,11 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#000000"
       },
-      "package": "com.smartprice.app"
+      "package": "com.smartprice.app",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -36,6 +40,12 @@
       ],
       "expo-secure-store"
     ],
-    "scheme": "smartprice"
+    "scheme": "smartprice",
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "dc8bab89-773b-4d89-9efd-5303ff5d217a"
+      }
+    }
   }
 }
