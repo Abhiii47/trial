@@ -9,7 +9,8 @@
         "buildType": "apk"
       },
       "env": {
-        "npm_config_legacy_peer_deps": "true"
+        "npm_config_legacy_peer_deps": "true",
+        "EXPO_PUBLIC_API_URL": "https://trial-tyvo.onrender.com"
       }
     },
     "production": {}
